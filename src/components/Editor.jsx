@@ -1,28 +1,22 @@
-import React, { useState } from 'react'
-import { Controlled as CodeMirror } from 'react-codemirror2'
+import React, { useState } from 'react';
+import { Controlled as CodeMirror } from 'react-codemirror2';
+
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/material.css';
 import 'codemirror/mode/xml/xml';
 import 'codemirror/mode/javascript/javascript';
 import 'codemirror/mode/css/css';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCompressAlt, faExpandAlt } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCompressAlt, faExpandAlt } from '@fortawesome/free-solid-svg-icons';
 
 
-const Editor = (props) => {
-    const {
-        language,
-        displayName,
-        value,
-        onChange
-    } = props;
-
+const Editor = ({ language, displayName, value, onChange }) => {
     const [open, setOpen] = useState(true);
 
     const handleChange = (editor, data, value) => {
         onChange(value);
-    }
+    };
 
     return (
         <div className={`editor-container ${open ? '' : 'collapsed'}`}>
@@ -33,7 +27,7 @@ const Editor = (props) => {
                     className='expand-collapse-btn'
                     onClick={() => setOpen(prevOpen => !prevOpen)}
                 >
-                    <FontAwesomeIcon icon={open ? faCompressAlt : faExpandAlt}/>
+                    <FontAwesomeIcon icon={open ? faCompressAlt : faExpandAlt} />
                 </button>
             </div>
             <CodeMirror
@@ -52,4 +46,4 @@ const Editor = (props) => {
     )
 }
 
-export default Editor
+export default Editor;

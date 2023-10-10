@@ -8,6 +8,7 @@ const App = () => {
   const [js, setJs] = useLocalStorage('js', '')
   const [srcDoc, setSrcDoc] = useState("");
 
+  // set source Document
   useEffect(() => {
     const timeout = setTimeout(() => {
       setSrcDoc(`
@@ -19,6 +20,7 @@ const App = () => {
       `)
     }, 250)
 
+    // cleanup: clean previous timeout
     return () => clearTimeout(timeout);
   }, [html, css, js]);
 
@@ -59,4 +61,4 @@ const App = () => {
   )
 }
 
-export default App
+export default App;
